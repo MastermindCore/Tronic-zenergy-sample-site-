@@ -1,0 +1,17 @@
+{
+  "name": "tronic-zenergy-functions",
+  "description": "Cloud Functions: checkout + payment webhook, signed lesson video access, exam grading, certificate generation.",
+  "engines": { "node": "20" },
+  "main": "index.js",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.0",
+    "axios": "^1.7.2",
+    "pdf-lib": "^1.17.1"
+  }
+}
