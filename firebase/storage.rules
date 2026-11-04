@@ -1,0 +1,13 @@
+rules_version = '2';
+
+// Only certificates live in Storage. Lesson videos are hosted on YouTube
+// (Unlisted), not here — see README.md "Video hosting".
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /certificates/{uid}/{fileName} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if false; // written only by the gradeExam Cloud Function
+    }
+  }
+}

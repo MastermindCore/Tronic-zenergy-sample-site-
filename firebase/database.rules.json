@@ -1,0 +1,71 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+
+    "modules": {
+      ".read": true,
+      ".write": "root.child('admins').child(auth.uid).exists()"
+    },
+
+    "exams": {
+      ".read": false,
+      ".write": false
+    },
+
+    "lessonVideos": {
+      ".read": false,
+      ".write": false
+    },
+
+    "projects": { ".read": true, ".write": "root.child('admins').child(auth.uid).exists()" },
+    "projectCategories": { ".read": true, ".write": "root.child('admins').child(auth.uid).exists()" },
+    "news": { ".read": true, ".write": "root.child('admins').child(auth.uid).exists()" },
+    "funFacts": { ".read": true, ".write": "root.child('admins').child(auth.uid).exists()" },
+
+    "communityPosts": {
+      ".read": true,
+      ".indexOn": ["status"],
+      "$postId": {
+        ".write": "auth != null && (!data.exists() || root.child('admins').child(auth.uid).exists())",
+        ".validate": "newData.hasChildren(['title', 'caption', 'uid']) && newData.child('uid').val() === auth.uid || root.child('admins').child(auth.uid).exists()"
+      }
+    },
+
+    "qaRequests": {
+      ".read": "auth != null && root.child('admins').child(auth.uid).exists()",
+      "$requestId": {
+        ".write": "auth != null && (!data.exists() || root.child('admins').child(auth.uid).exists())",
+        ".validate": "newData.child('uid').val() === auth.uid || root.child('admins').child(auth.uid).exists()"
+      }
+    },
+
+    "payments": {
+      ".read": "auth != null && root.child('admins').child(auth.uid).exists()",
+      ".write": false
+    },
+
+    "users": {
+      "$uid": {
+        ".read": "auth != null && (auth.uid === $uid || root.child('admins').child(auth.uid).exists())",
+
+        "name": { ".write": "auth != null && auth.uid === $uid" },
+        "email": { ".write": "auth != null && auth.uid === $uid" },
+        "createdAt": { ".write": "auth != null && auth.uid === $uid" },
+
+        "enrollments": {
+          "$moduleId": {
+            "progress": {
+              "$topicId": { ".write": "auth != null && auth.uid === $uid" }
+            }
+          }
+        }
+      }
+    },
+
+    "admins": {
+      ".read": "auth != null",
+      ".write": false
+    }
+  }
+}
