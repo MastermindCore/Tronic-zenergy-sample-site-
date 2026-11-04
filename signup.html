@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign up | Tronic Zenergy</title>
+<meta name="theme-color" content="#070b12">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="12" fill="#121B2B"/><path d="M34 10 L18 35 H29 L24 54 L46 27 H34 L40 10 Z" stroke="#2F8FFF" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      Tronic Zenergy
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="classes.html">Classes</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="btn btn-ghost" href="login.html">Log in</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+  </div>
+</nav>
+
+<div class="auth-shell">
+  <span class="kicker" style="display:block;color:var(--cyan);font-size:0.86rem;font-weight:600;margin-bottom:10px">Create account</span>
+  <h1 style="margin-bottom:24px">Sign up</h1>
+
+  <div class="form-error" id="form-error"></div>
+
+  <form id="signup-form">
+    <div class="form-field">
+      <label for="name">Full name</label>
+      <input type="text" id="name" required autocomplete="name">
+    </div>
+    <div class="form-field">
+      <label for="email">Email</label>
+      <input type="email" id="email" required autocomplete="email">
+    </div>
+    <div class="form-field">
+      <label for="password">Password</label>
+      <input type="password" id="password" required minlength="8" autocomplete="new-password">
+      <p class="form-note">At least 8 characters.</p>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Create account</button>
+  </form>
+
+  <p style="margin-top:20px;font-size:0.9rem;color:var(--gray)">Already have an account? <a href="login.html" style="color:var(--electric)">Log in</a></p>
+</div>
+
+<script src="js/firebase-config.js"></script>
+<script src="js/demo-data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/app.js"></script>
+<script>
+  document.getElementById("signup-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const errBox = document.getElementById("form-error");
+    errBox.classList.remove("show");
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    try {
+      await window.TZ_AUTH.tzSignUp(name, email, password);
+      window.location.href = "dashboard.html";
+    } catch (err) {
+      errBox.textContent = err.message || "Could not create the account. Try again.";
+      errBox.classList.add("show");
+    }
+  });
+</script>
+</body>
+</html>

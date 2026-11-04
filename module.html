@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module | Tronic Zenergy</title>
+<meta name="theme-color" content="#070b12">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  .module-layout { display: grid; grid-template-columns: 320px 1fr; gap: 32px; align-items: start; }
+  @media (max-width: 860px) { .module-layout { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="12" fill="#121B2B"/><path d="M34 10 L18 35 H29 L24 54 L46 27 H34 L40 10 Z" stroke="#2F8FFF" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      Tronic Zenergy
+    </a>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">My Account</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="btn btn-ghost" href="dashboard.html">Back to dashboard</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+  </div>
+</nav>
+
+<section class="section-tight" id="module-root">
+  <div class="wrap" id="module-root-inner">
+    <span class="kicker" style="display:block;color:var(--cyan);font-size:0.86rem;font-weight:600;margin-bottom:10px">Module</span>
+    <h1 id="module-title" style="margin-bottom:24px">Loading…</h1>
+
+    <div class="card center" id="module-locked" style="display:none">
+      <h3>You haven't enrolled in this module yet</h3>
+      <p>Enroll to access its lessons, exam, and certificate.</p>
+      <a class="btn btn-primary" href="classes.html">Go to classes</a>
+    </div>
+
+    <div id="module-body" class="module-layout" style="display:none">
+      <div>
+        <h4 style="margin-bottom:8px">Lessons</h4>
+        <ul class="row-list" id="lesson-list" style="list-style:none;padding:0;margin:0 0 20px"></ul>
+        <button class="btn btn-primary btn-block" id="exam-cta" style="display:none">Take module exam</button>
+      </div>
+      <div>
+        <h3 id="lesson-heading" style="margin-bottom:12px"></h3>
+        <div class="video-embed" id="video-embed"></div>
+        <div style="margin-top:16px">
+          <button class="btn btn-ghost" id="mark-complete-btn">Mark lesson complete</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="exam-shell" style="display:none;max-width:640px">
+      <span class="kicker" style="display:block;color:var(--cyan);font-size:0.86rem;font-weight:600;margin-bottom:10px">Module exam</span>
+      <h2 style="margin-bottom:20px">Answer every question, then submit</h2>
+      <form id="exam-form"></form>
+      <div id="exam-result" style="display:none"></div>
+    </div>
+  </div>
+</section>
+
+<script src="js/firebase-config.js"></script>
+<script src="js/demo-data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/module.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Account | Tronic Zenergy</title>
+<meta name="theme-color" content="#070b12">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="12" fill="#121B2B"/><path d="M34 10 L18 35 H29 L24 54 L46 27 H34 L40 10 Z" stroke="#2F8FFF" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      Tronic Zenergy
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="classes.html">Classes</a></li>
+      <li><a href="dashboard.html" aria-current="page">My Account</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn btn-ghost" id="logout-btn">Log out</button>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+  </div>
+</nav>
+
+<section class="section-tight">
+  <div class="wrap">
+    <span class="kicker" style="display:block;color:var(--cyan);font-size:0.86rem;font-weight:600;margin-bottom:10px">Dashboard</span>
+    <h1 style="margin-bottom:8px">Welcome back, <span id="welcome-name">there</span></h1>
+    <p style="margin-bottom:32px">Your modules, progress, and certificates.</p>
+    <div id="module-list"></div>
+  </div>
+</section>
+
+<section class="panel section-tight" id="qa-section" style="display:none">
+  <div class="wrap grid-2">
+    <div>
+      <span class="kicker" style="display:block;color:var(--cyan);font-size:0.86rem;font-weight:600;margin-bottom:10px">1-on-1</span>
+      <h2>Book a Q&amp;A session</h2>
+      <p>Once a week, Ezra opens slots for a 15 to 30 minute call to go over what you're learning. Send a preferred day and time, and you'll get a confirmation with a video call link once it's accepted.</p>
+    </div>
+    <form id="qa-form" class="card">
+      <div class="form-field">
+        <label for="qa-day">Preferred day</label>
+        <select id="qa-day" required>
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+          <option value="Saturday">Saturday</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="qa-time">Preferred time</label>
+        <input type="time" id="qa-time" required>
+      </div>
+      <div class="form-field">
+        <label for="qa-note">What do you want to cover?</label>
+        <textarea id="qa-note" rows="3" placeholder="e.g. Still unclear on JK flip-flop timing"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Request session</button>
+      <p class="form-note" id="qa-status" style="display:none;margin-top:12px"></p>
+    </form>
+  </div>
+</section>
+<p class="form-note center" id="qa-locked-note" style="display:none;padding:24px">Enroll in a module to unlock weekly Q&amp;A sessions with Ezra.</p>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>&copy; <span data-year></span> Tronic Zenergy</span>
+      <span><a href="privacy.html" style="color:var(--gray-dim)">Privacy</a> &middot; <a href="terms.html" style="color:var(--gray-dim)">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/firebase-config.js"></script>
+<script src="js/demo-data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

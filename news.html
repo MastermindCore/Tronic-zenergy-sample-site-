@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News &amp; Articles | Tronic Zenergy</title>
+<meta name="description" content="Recent achievements, inventions, and breakthroughs from the world of electronics.">
+<meta name="theme-color" content="#070b12">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="12" fill="#121B2B"/><path d="M34 10 L18 35 H29 L24 54 L46 27 H34 L40 10 Z" stroke="#2F8FFF" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      Tronic Zenergy
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="classes.html">Classes</a></li>
+      <li><a href="news.html" aria-current="page">News &amp; Articles</a></li>
+      <li><a href="fun-zone.html">Fun Zone</a></li>
+      <li><a href="social.html">Social</a></li>
+    </ul>
+    <div class="search-box nav-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="text" id="site-search-input" placeholder="Search…" autocomplete="off">
+      <div class="search-results" id="site-search-results"></div>
+    </div>
+    <div class="nav-actions">
+      <a class="btn btn-ghost" href="dashboard.html">My Account</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+  </div>
+</nav>
+
+<section class="section-tight">
+  <div class="wrap">
+    <span class="kicker" style="display:block;color:var(--cyan);font-size:0.86rem;font-weight:600;margin-bottom:10px">What the world is building</span>
+    <h1>News &amp; Articles</h1>
+    <p style="max-width:62ch">Achievements, inventions, and breakthroughs from the wider world of electronics and electrical engineering, with links back to the original source.</p>
+  </div>
+</section>
+
+<section class="section-tight" style="padding-top:0">
+  <div class="wrap" style="max-width:760px">
+    <div id="news-list"></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>&copy; <span data-year></span> Tronic Zenergy</span>
+      <span><a href="privacy.html" style="color:var(--gray-dim)">Privacy</a> &middot; <a href="terms.html" style="color:var(--gray-dim)">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/firebase-config.js"></script>
+<script src="js/demo-data.js"></script>
+<script src="js/news.js"></script>
+<script src="js/search.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

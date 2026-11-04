@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Community | Tronic Zenergy</title>
+<meta name="description" content="Student builds, shared by the Tronic Zenergy community.">
+<meta name="theme-color" content="#070b12">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="12" fill="#121B2B"/><path d="M34 10 L18 35 H29 L24 54 L46 27 H34 L40 10 Z" stroke="#2F8FFF" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      Tronic Zenergy
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="classes.html">Classes</a></li>
+      <li><a href="news.html">News &amp; Articles</a></li>
+      <li><a href="fun-zone.html">Fun Zone</a></li>
+      <li><a href="social.html">Social</a></li>
+    </ul>
+    <div class="search-box nav-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="text" id="site-search-input" placeholder="Search…" autocomplete="off">
+      <div class="search-results" id="site-search-results"></div>
+    </div>
+    <div class="nav-actions">
+      <a class="btn btn-ghost" href="dashboard.html">My Account</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+  </div>
+</nav>
+
+<section class="section-tight">
+  <div class="wrap">
+    <span class="kicker" style="display:block;color:var(--cyan);font-size:0.86rem;font-weight:600;margin-bottom:10px">Community wall</span>
+    <h1>What students are building</h1>
+    <p style="max-width:62ch">Share a photo of something you've built, beginner or advanced. Posts are reviewed before they go live.</p>
+  </div>
+</section>
+
+<section class="panel section-tight">
+  <div class="wrap">
+    <form id="post-form" class="card" style="max-width:520px;margin:0 auto">
+      <h3 style="margin-bottom:16px">Share your build</h3>
+      <div class="form-field">
+        <label for="post-title">Title</label>
+        <input type="text" id="post-title" required>
+      </div>
+      <div class="form-field">
+        <label for="post-caption">What did you build?</label>
+        <textarea id="post-caption" rows="3" required></textarea>
+      </div>
+      <div class="form-field">
+        <label for="post-image">Image URL (optional)</label>
+        <input type="url" id="post-image" placeholder="https://…">
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Submit for review</button>
+      <p class="form-note" id="post-status" style="display:none;margin-top:12px"></p>
+    </form>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap">
+    <div class="grid-3" id="community-grid"></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>&copy; <span data-year></span> Tronic Zenergy</span>
+      <span><a href="privacy.html" style="color:var(--gray-dim)">Privacy</a> &middot; <a href="terms.html" style="color:var(--gray-dim)">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/firebase-config.js"></script>
+<script src="js/demo-data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/community.js"></script>
+<script src="js/search.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
